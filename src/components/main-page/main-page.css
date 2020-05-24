@@ -1,0 +1,60 @@
+.logo {
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 96px;
+    line-height: 117px;
+
+
+    letter-spacing: 0.395em;
+
+    color: transparent;
+
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    display: block;
+    text-align: center;
+    align-items: center;
+
+    background-image: url("../../img/down.png");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    -webkit-background-clip: text;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    animation: background-slide 10s linear infinite;
+}
+
+@keyframes background-slide {
+    0% {
+        background-position: center 0 ;
+    }
+    50% {
+        background-position: center 100% ;
+
+    }
+    100% {
+        background-position: center 0 ;
+
+    }
+}
+
+@-webkit-keyframes  background-slide {
+    0% {
+        background-position: center 0 ;
+    }
+    50% {
+        background-position: center 100% ;
+
+    }
+    100% {
+        background-position: center 0 ;
+
+    }
+}
+
+
+
+
+
+

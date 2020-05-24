@@ -1,0 +1,30 @@
+.bg-modal{
+}
+
+.bg-modal-logo{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 144px;
+    line-height: 176px;
+
+
+    letter-spacing: 0.67em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+}
+
+.img-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-img{
+    display: block;
+    width: 100%;
+}
