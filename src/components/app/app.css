@@ -23,6 +23,4 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor: default;
-    cursor: url("https://github.com/chenglou/react-motion/raw/master/demos/demo8-draggable-list/cursor.png") 39 39, auto;
 }
-
