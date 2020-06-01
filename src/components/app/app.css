@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html,
@@ -24,3 +25,4 @@ body {
     user-select: none;
     cursor: default;
 }
+

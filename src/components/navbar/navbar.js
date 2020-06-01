@@ -1,6 +1,8 @@
 import React from "react";
 import './navbar.css';
 import NavBarItem from "./navbar-item";
+import {Link} from "react-router-dom";
+
 
 const NavBar = ({nav, onToggleImportant, onToggleChoose}) =>{
 
@@ -9,13 +11,13 @@ const NavBar = ({nav, onToggleImportant, onToggleChoose}) =>{
 
                 return (
                     <div key={id} className="nav-bar-page">
-                        <a href={'#' + id}>
+                        <Link to={id}>
                             <NavBarItem
                                 {...itemProps }
                                 onToggleImportant={() => onToggleImportant(id)}
                                 onToggleChoose={() => onToggleChoose(id)}
                             />
-                            </a>
+                            </Link>
                     </div>
                 );
         });

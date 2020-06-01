@@ -2,23 +2,17 @@ import React from "react";
 import './modal.css';
 import Slider1 from "../modal-func";
 import ArrowBack from '../../img/arrow-back.svg';
+import {Link} from "react-router-dom";
 
 
-
-
-const Modal = ({display, onBack}) => {
-
-
-
+const Modal = () => {
 
         return (
-            <div className='bg-modal'
-                 style={{display: display}}>
-                <div className='back-wrapper'
-              onClick={onBack}>
+            <div className='bg-modal'>
+                <Link to="/main" className='back-wrapper'>
                     <img className='arrow-back' src={ArrowBack} alt="back"/>
                     <div className='back-to-main'>назад</div>
-                </div>
+                </Link>
                 <div id='modal-func'>
                     <Slider1 />
                     <div className='bg-modal-logo'>VANAKN</div>
@@ -27,6 +21,5 @@ const Modal = ({display, onBack}) => {
         )
 
 };
-
 
 export default Modal;
