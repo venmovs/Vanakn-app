@@ -1,31 +1,29 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import './app.css';
 import NavBar from "../navbar";
 import MainPage from "../main-page";
+import Modal from "../modal";
 import AboutUs from "../about-us";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
+export default class App extends Component {
 
-
-
-export default class App extends Component{
-
-     labelCount = 1;
+    labelCount = 1;
 
     state = {
         navData: [
-            this.createNavItem( "main", true, true),
-            this.createNavItem( "about"),
+            this.createNavItem("main", true),
+            this.createNavItem("about"),
             this.createNavItem("other")
         ]
     };
 
-    createNavItem(id, choose = false, important = false) {
+    createNavItem(id, important = false) {
         return {
             label: this.labelCount++,
             important,
             id,
-            choose
         }
     }
 
@@ -33,8 +31,10 @@ export default class App extends Component{
         const idx = arr.findIndex((el) => el.id === id);
 
         const oldItem = arr[idx];
-        const newItem = {...oldItem,
-            [propName]: activate};
+        const newItem = {
+            ...oldItem,
+            [propName]: activate
+        };
 
         return [
             ...arr.slice(0, idx),
@@ -43,8 +43,8 @@ export default class App extends Component{
         ];
     }
 
-    disableAnother = (el) =>{
-        this.setState(({navData}) =>{
+    disableAnother = (el) => {
+        this.setState(({navData}) => {
             let newData = navData;
             newData.forEach((item) => {
                 newData = this.toggleProperty(newData, item.id, el, false);
@@ -57,7 +57,7 @@ export default class App extends Component{
 
     onToggleImportant = (id) => {
         this.disableAnother('important');
-        this.setState(({ navData }) => {
+        this.setState(({navData}) => {
             return {
                 navData: this.toggleProperty(navData, id, 'important', true)
             };
@@ -65,34 +65,36 @@ export default class App extends Component{
     };
 
 
-    onToggleChoose = (id) => {
-        this.disableAnother('choose');
-        this.setState(({ navData }) => {
-            return {
-                navData: this.toggleProperty(navData, id, 'choose', true)
-            };
-        });
-    };
-
-
-
 
     render() {
-        const { navData } = this.state;
-
+        const {navData} = this.state;
 
         return (
-            <div className='bg'>
-                <NavBar
-                    nav={navData}
-                    onToggleImportant={this.onToggleImportant}
-                    onToggleChoose={this.onToggleChoose}
-                />
-                <MainPage href = {navData[0].id}
-                choose={navData[0].choose}/>
-                <AboutUs href = {navData[1].id}
-                         choose={navData[1].choose}/>
-            </div>
+            <Router>
+                <div className='bg'>
+                    <NavBar
+                        nav={navData}
+                        onToggleImportant={this.onToggleImportant}
+                    />
+
+                    <Route path="/main">
+                        <MainPage href={navData[0].id}
+                            exact
+                        />
+                    </Route>
+
+                    <Route path="/gallery">
+                        <Modal />
+                    </Route>
+
+                    <Route path="/about">
+                        <AboutUs href={navData[1].id}
+                        />
+                    </Route>
+
+                </div>
+            </Router>
+
         );
     }
 }

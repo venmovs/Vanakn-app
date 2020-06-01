@@ -6,7 +6,7 @@ export default class NavBarItem extends Component {
 
     render() {
 
-        const {label, onToggleImportant, important, onToggleChoose} = this.props;
+        const {label, onToggleImportant, important} = this.props;
 
         let classNames = 'nav-bar-line';
         if(important){
@@ -22,7 +22,6 @@ export default class NavBarItem extends Component {
         return(
             <div className="n-line-wrapper"
                  onMouseEnter={onToggleImportant}
-                 onClick={onToggleChoose}
             >
 
 
