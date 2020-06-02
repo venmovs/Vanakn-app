@@ -72,24 +72,28 @@ export default class App extends Component {
         return (
             <Router>
                 <div className='bg'>
-                    <NavBar
-                        nav={navData}
-                        onToggleImportant={this.onToggleImportant}
-                    />
-
-                    <Route path="/main">
-                        <MainPage href={navData[0].id}
-                            exact
-                        />
-                    </Route>
 
                     <Route path="/gallery">
                         <Modal />
                     </Route>
 
+                            <NavBar
+                                nav={navData}
+                                onToggleImportant={this.onToggleImportant}
+                            />
+
+
+
+
+                    <Route path="/main"
+                           exact>
+                        <MainPage href={navData[0].id} />
+                    </Route>
+
+
+
                     <Route path="/about">
-                        <AboutUs href={navData[1].id}
-                        />
+                        <AboutUs href={navData[1].id} />
                     </Route>
 
                 </div>

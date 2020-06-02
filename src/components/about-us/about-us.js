@@ -4,11 +4,6 @@ import './about-us.css';
 
 const AboutUs = ({href}) => {
 
-
-
-
-
-
     return(
         <div id={href} >
             ABOUT US

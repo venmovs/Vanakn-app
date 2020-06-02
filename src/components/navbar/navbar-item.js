@@ -1,28 +1,24 @@
-import React, {Component} from "react";
+import React from "react";
 import './navbar.css';
 
 
-export default class NavBarItem extends Component {
+const NavBarItem = ({label, onToggleImportant, important}) => {
 
-    render() {
+    let classNames = 'nav-bar-line';
+    if (important) {
+        classNames += ' nav-bar-line-active scale-in-hor-left'
+    }
 
-        const {label, onToggleImportant, important} = this.props;
-
-        let classNames = 'nav-bar-line';
-        if(important){
-            classNames += ' nav-bar-line-active scale-in-hor-left'
-        }
-
-        let classForNum = 'nav-bar-n';
-        if(important){
-            classForNum += ' scale-in-hor-left'
-        }
+    let classForNum = 'nav-bar-n';
+    if (important) {
+        classForNum += ' scale-in-hor-left'
+    }
 
 
-        return(
-            <div className="n-line-wrapper"
-                 onMouseEnter={onToggleImportant}
-            >
+    return (
+        <div className="n-line-wrapper"
+             onMouseEnter={onToggleImportant}
+        >
 
 
             <div className={classNames}>
@@ -30,13 +26,13 @@ export default class NavBarItem extends Component {
             <div className={classForNum}>
                 {label}
             </div>
-            </div>
+        </div>
 
-        )
+    )
+};
+
+export default NavBarItem;
 
 
-    }
-
-}
 
 
