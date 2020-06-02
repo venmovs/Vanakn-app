@@ -1,15 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
 import './main-page.css';
 import {Link} from "react-router-dom";
 
-export default class MainPage extends Component {
-
-
-    render() {
+const MainPage = ({href}) => {
 
 
         return (
-            <div id={this.props.href}>
+            <div id={href}>
                 <div>
                     <Link to="/gallery" className='logo'>
                         VANAKN
@@ -33,9 +30,7 @@ export default class MainPage extends Component {
                 </div>
             </div>
         )
-    }
-
-
 };
 
+export default MainPage;
 
