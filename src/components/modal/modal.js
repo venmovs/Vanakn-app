@@ -9,7 +9,7 @@ const Modal = () => {
 
         return (
             <div className='bg-modal'>
-                <Link to="/main" className='back-wrapper'>
+                <Link to="/" className='back-wrapper'>
                     <img className='arrow-back' src={ArrowBack} alt="back"/>
                     <div className='back-to-main'>назад</div>
                 </Link>

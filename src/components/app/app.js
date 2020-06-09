@@ -3,8 +3,10 @@ import './app.css';
 import NavBar from "../navbar";
 import MainPage from "../main-page";
 import Modal from "../modal";
-import AboutUs from "../about-us";
+import Advantages from "../advantages";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+
 
 
 export default class App extends Component {
@@ -13,7 +15,7 @@ export default class App extends Component {
 
     state = {
         navData: [
-            this.createNavItem("main", true),
+            this.createNavItem("/", true),
             this.createNavItem("about"),
             this.createNavItem("other")
         ]
@@ -66,6 +68,23 @@ export default class App extends Component {
 
 
 
+
+/*    scrollSite=(y) =>{
+        if(y < 0){
+            console.log('top')
+        } else {
+            console.log('slide down')
+        }
+    };
+
+    componentDidMount(){
+        window.addEventListener('wheel', (e) => {
+            this.scrollSite(e.wheelDelta);
+        })
+    }*/
+
+
+
     render() {
         const {navData} = this.state;
 
@@ -82,10 +101,7 @@ export default class App extends Component {
                                 onToggleImportant={this.onToggleImportant}
                             />
 
-
-
-
-                    <Route path="/main"
+                    <Route path="/"
                            exact>
                         <MainPage href={navData[0].id} />
                     </Route>
@@ -93,7 +109,7 @@ export default class App extends Component {
 
 
                     <Route path="/about">
-                        <AboutUs href={navData[1].id} />
+                        <Advantages href={navData[1].id} />
                     </Route>
 
                 </div>

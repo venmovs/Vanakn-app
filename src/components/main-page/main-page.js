@@ -6,7 +6,7 @@ const MainPage = ({href}) => {
 
 
         return (
-            <div id={href}>
+            <div  id={href}>
                 <div>
                     <Link to="/gallery" className='logo'>
                         VANAKN
@@ -25,8 +25,7 @@ const MainPage = ({href}) => {
                             <img className='slide-bottom' src={require('../../img/arrow-down.svg')} alt="arrow-down"/>
                         </div>
                     </div>
-                </div>
-                <div className='main-page-wrapper'>
+                    <a className="mail" href="#">vanakn.llc@gmail.com</a>
                 </div>
             </div>
         )
