@@ -9,6 +9,8 @@ const NavBar = ({nav, onToggleImportant, onToggleChoose}) => {
     const elements = nav.map((item) => {
         const {id, ...itemProps} = item;
 
+
+
         return (
             <div key={id} className="nav-bar-page">
                 <Link to={id}>
