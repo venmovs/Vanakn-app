@@ -7,15 +7,11 @@ export default class Advantages extends Component {
 
     state = {
       pageItem: [
-          {id: 1, label: 'delivery', number: 1, img: "1", active: true},
-          {id: 2, label: 'Garant', number: 2, img: "1", active: false},
+          {id: 1, label: 'delivery', number: 1, img: "1", active: false},
+          {id: 2, label: 'Garant', number: 2, img: "1", active: true},
           {id: 3, label: 'Exp', number: 3, img: "1", active: false}
       ]
     };
-
-
-
-
 
 
     toggleProperty(arr, id, propName, activate) {
@@ -58,14 +54,32 @@ export default class Advantages extends Component {
 
 
 
+    prepareData = () => {
+        let preparedData = {};
+        this.state.pageItem.forEach((item) => {
+            if(item.active){
+                preparedData = {
+                    id: item.id,
+                    label: item.label,
+                    img: item.img,
+                    number: item.number,
+                }
+            }
+        });
+        return preparedData;
+    };
 
 
+    render() {
 
-    elements = this.state.pageItem.map((item) => {
-        const {id, label, number, img} = item;
+        const className = 'advantages-nav-item';
+        const activeClass = ' active-adv-nav';
+        const {pageItem} = this.state;
+        const {href} = this.props;
+        const {id, label, number, img} = this.prepareData();
 
-
-            return (
+        return (
+            <div id={href} className="advantages-wrapper">
                 <div key={id} >
                     <img className="advantages-img" src={require(`../../img/advantages${img}.jpg`)} alt="test"/>
                     <div className="advantages-text-wrapper">
@@ -77,32 +91,17 @@ export default class Advantages extends Component {
                         </div>
                     </div>
                 </div>
-            );
-
-
-    });
-
-
-
-    render() {
-
-        const className = 'advantages-nav-item';
-        const activeClass = ' active-adv-nav';
-
-        const {pageItem} = this.state;
-
-        const {href} = this.props;
-        return (
-            <div id={href} className="advantages-wrapper">
-                {this.elements[0]}
                 <ul className="advantages-nav">
-                    <li onClick={()=> console.log(`${this.onToggleActive(1)}`)} className={pageItem[0].active === true ? className + activeClass : className}>
+                    <li onClick={()=>this.onToggleActive(pageItem[0].id)}
+                        className={pageItem[0].active === true ? className + activeClass : className}>
                         Доставка
                     </li>
-                    <li  onClick={()=> console.log(`${this.onToggleActive(2)}`)} className={pageItem[1].active === true ? className + activeClass : className}>
+                    <li  onClick={()=>this.onToggleActive(pageItem[1].id)}
+                         className={pageItem[1].active === true ? className + activeClass : className}>
                         Гарантия
                     </li>
-                    <li  onClick={()=> console.log(`${this.onToggleActive(3)}`)} className={pageItem[2].active === true ? className + activeClass : className}>
+                    <li  onClick={()=>this.onToggleActive(pageItem[2].id)}
+                         className={pageItem[2].active === true ? className + activeClass : className}>
                         Эксплуатация
                     </li>
                 </ul>
