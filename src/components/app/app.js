@@ -25,7 +25,7 @@ export default class App extends Component {
         return {
             label: this.labelCount++,
             important,
-            id,
+            id
         }
     }
 
