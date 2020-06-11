@@ -5,12 +5,13 @@ import '../../img/advantages1.jpg';
 
 export default class Advantages extends Component {
 
+
     state = {
-      pageItem: [
-          {id: 1, label: 'delivery', number: 1, img: "1", active: false},
-          {id: 2, label: 'Garant', number: 2, img: "1", active: true},
-          {id: 3, label: 'Exp', number: 3, img: "1", active: false}
-      ]
+        pageItem: [
+            {id: 1, label: 'delivery', number: 1, img: "1", active: true},
+            {id: 2, label: 'Garant', number: 2, img: "1", active: false},
+            {id: 3, label: 'Exp', number: 3, img: "1", active: false}
+        ]
     };
 
 
@@ -31,33 +32,46 @@ export default class Advantages extends Component {
     }
 
 
-        disableAnother = (el) => {
-            this.setState(({pageItem}) => {
-                let newItems = pageItem;
-                newItems.forEach((item) => {
-                    newItems = this.toggleProperty(newItems, item.id, el, false);
-                });
-                return {
-                    pageItem: newItems
-                }
-            });
-        };
 
-       onToggleActive = (id) => {
-            this.disableAnother('active');
-            this.setState(({pageItem}) => {
-                return {
-                    pageItem: this.toggleProperty(pageItem, id, 'active', true)
-                };
+    onToggleActive = (id) => {
+
+        this.setState(({pageItem}) => {
+            pageItem.forEach((item)=>{
+                item.active = false
             });
-        };
+            return {
+                pageItem: this.toggleProperty(pageItem, id, 'active', true)
+            };
+        });
+    };
+
+
+    nextData = (id) => {
+        this.setState(({pageItem}) => {
+            pageItem.forEach((item)=>{
+                item.active = false
+            });
+            if (id < pageItem.length){
+                return {
+                    pageItem: this.toggleProperty(pageItem, id + 1, 'active', true)
+                }
+            } else {
+                return {
+                    pageItem: this.toggleProperty(pageItem, pageItem[0].id, 'active', true)
+                }
+
+            }
+
+        });
+    };
+
 
 
 
     prepareData = () => {
         let preparedData = {};
         this.state.pageItem.forEach((item) => {
-            if(item.active){
+            if (item.active) {
                 preparedData = {
                     id: item.id,
                     label: item.label,
@@ -70,17 +84,33 @@ export default class Advantages extends Component {
     };
 
 
-    render() {
 
+    componentDidMount(){
+        this.timer =  setInterval(() => this.nextData(this.prepareData().id), 3000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+
+
+
+
+
+
+
+    render() {
         const className = 'advantages-nav-item';
         const activeClass = ' active-adv-nav';
         const {pageItem} = this.state;
         const {href} = this.props;
         const {id, label, number, img} = this.prepareData();
-
         return (
-            <div id={href} className="advantages-wrapper">
-                <div key={id} >
+            <div id={href} className="advantages-wrapper"
+                 onMouseEnter={()=>this.componentWillUnmount()}
+                 onMouseLeave={()=>this.componentDidMount()}>
+                <div key={id}>
                     <img className="advantages-img" src={require(`../../img/advantages${img}.jpg`)} alt="test"/>
                     <div className="advantages-text-wrapper">
                         <div className="advantages-text">
@@ -91,17 +121,20 @@ export default class Advantages extends Component {
                         </div>
                     </div>
                 </div>
+                <div className="arrow-right" onClick={()=> this.nextData(id)}>
+                    <img src={require("../../img/Arrow-right.png")} alt="arrow-right"/>
+                </div>
                 <ul className="advantages-nav">
-                    <li onClick={()=>this.onToggleActive(pageItem[0].id)}
+                    <li onClick={() => this.onToggleActive(pageItem[0].id)}
                         className={pageItem[0].active === true ? className + activeClass : className}>
                         Доставка
                     </li>
-                    <li  onClick={()=>this.onToggleActive(pageItem[1].id)}
-                         className={pageItem[1].active === true ? className + activeClass : className}>
+                    <li onClick={() => this.onToggleActive(pageItem[1].id)}
+                        className={pageItem[1].active === true ? className + activeClass : className}>
                         Гарантия
                     </li>
-                    <li  onClick={()=>this.onToggleActive(pageItem[2].id)}
-                         className={pageItem[2].active === true ? className + activeClass : className}>
+                    <li onClick={() => this.onToggleActive(pageItem[2].id)}
+                        className={pageItem[2].active === true ? className + activeClass : className}>
                         Эксплуатация
                     </li>
                 </ul>
