@@ -45,21 +45,13 @@ export default class App extends Component {
         ];
     }
 
-    disableAnother = (el) => {
-        this.setState(({navData}) => {
-            let newData = navData;
-            newData.forEach((item) => {
-                newData = this.toggleProperty(newData, item.id, el, false);
-            });
-            return {
-                navData: newData
-            }
-        });
-    };
 
     onToggleImportant = (id) => {
-        this.disableAnother('important');
+
         this.setState(({navData}) => {
+            navData.forEach((item)=>{
+                item.important = false
+            });
             return {
                 navData: this.toggleProperty(navData, id, 'important', true)
             };
