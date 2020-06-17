@@ -103,8 +103,8 @@
 
 
 .slide-bottom {
-    -webkit-animation: slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
-    animation: slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
+    -webkit-animation: slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
+    animation: slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
 }
 
 
@@ -114,8 +114,8 @@
         transform: translateY(0);
     }
     100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
     }
 }
 @keyframes slide-bottom {
@@ -124,8 +124,8 @@
         transform: translateY(0);
     }
     100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
     }
 }
 
