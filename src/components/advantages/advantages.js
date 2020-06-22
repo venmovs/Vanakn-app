@@ -129,20 +129,20 @@ export default class Advantages extends Component {
                     <li onClick={() => this.onToggleActive(pageItem[0].id)}
                         className={pageItem[0].active === true ? className + activeClass : className}>
                         Доставка
-                        <div className='line-under-li'
+                        <div className='line-under-li line-right'
                              style={pageItem[0].active === true ? displayOn : displayOf}
                         />
                     </li>
                     <li onClick={() => this.onToggleActive(pageItem[1].id)}
                         className={pageItem[1].active === true ? className + activeClass : className}>
                         Гарантия
-                        <div className='line-under-li'
+                        <div className='line-under-li line-right'
                              style={pageItem[1].active === true ? displayOn : displayOf}/>
                     </li>
                     <li onClick={() => this.onToggleActive(pageItem[2].id)}
                         className={pageItem[2].active === true ? className + activeClass : className}>
                         Эксплуатация
-                        <div className='line-under-li'
+                        <div className='line-under-li line-right'
                              style={pageItem[2].active === true ? displayOn : displayOf}/>
                     </li>
                 </ul>
