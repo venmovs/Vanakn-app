@@ -74,12 +74,7 @@
     right: -3%;
 }
 
-.line-under-li{
-    width: 2px;
-    height: 0;
-    margin-top: 10px;
-    border: 1px solid #000000;
-}
+
 
 
 .advantages-nav{
@@ -126,5 +121,50 @@ li{
 }
 
 
+.line-under-li{
+    width: 60px;
+    height: 0;
+    margin-top: 10px;
+    border: 1px solid white;
+}
 
+
+.line-right {
+    -webkit-animation: line-right 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: line-right 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-webkit-keyframes line-right {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+}
+@keyframes line-right {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+}
 

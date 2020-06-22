@@ -16,7 +16,7 @@ export default class App extends Component {
     state = {
         navData: [
             this.createNavItem("/", true),
-            this.createNavItem("about"),
+            this.createNavItem("advantages"),
             this.createNavItem("other")
         ]
     };
@@ -82,6 +82,8 @@ export default class App extends Component {
 
         return (
             <Router>
+
+
                 <div className='bg'>
 
                     <Route path="/gallery">
@@ -100,8 +102,12 @@ export default class App extends Component {
 
 
 
-                    <Route path="/about">
+                    <Route path="/advantages">
                         <Advantages href={navData[1].id} />
+                    </Route>
+
+                    <Route path='/other'>
+                        
                     </Route>
 
                 </div>
