@@ -4,6 +4,8 @@ import NavBar from "../navbar";
 import MainPage from "../main-page";
 import Modal from "../modal";
 import Advantages from "../advantages";
+import Consultation from "../consultation";
+import toggleProperty from "../toggle-property";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
@@ -11,13 +13,15 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 export default class App extends Component {
 
+
     labelCount = 1;
 
     state = {
         navData: [
             this.createNavItem("/", true),
             this.createNavItem("advantages"),
-            this.createNavItem("other")
+            this.createNavItem("consultation")
+
         ]
     };
 
@@ -29,21 +33,6 @@ export default class App extends Component {
         }
     }
 
-    toggleProperty(arr, id, propName, activate) {
-        const idx = arr.findIndex((el) => el.id === id);
-
-        const oldItem = arr[idx];
-        const newItem = {
-            ...oldItem,
-            [propName]: activate
-        };
-
-        return [
-            ...arr.slice(0, idx),
-            newItem,
-            ...arr.slice(idx + 1)
-        ];
-    }
 
 
     onToggleImportant = (id) => {
@@ -53,7 +42,7 @@ export default class App extends Component {
                 item.important = false
             });
             return {
-                navData: this.toggleProperty(navData, id, 'important', true)
+                navData: toggleProperty(navData, id, 'important', true)
             };
         });
     };
@@ -106,8 +95,8 @@ export default class App extends Component {
                         <Advantages href={navData[1].id} />
                     </Route>
 
-                    <Route path='/other'>
-                        
+                    <Route path='/consultation'>
+                        <Consultation />
                     </Route>
 
                 </div>

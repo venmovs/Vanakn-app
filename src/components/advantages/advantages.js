@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './advantages.css';
 import '../../img/advantages1.jpg';
+import toggleProperty from "../toggle-property";
 
 
 export default class Advantages extends Component {
@@ -15,22 +16,6 @@ export default class Advantages extends Component {
     };
 
 
-    toggleProperty(arr, id, propName, activate) {
-        const idx = arr.findIndex((el) => el.id === id);
-
-        const oldItem = arr[idx];
-        const newItem = {
-            ...oldItem,
-            [propName]: activate
-        };
-
-        return [
-            ...arr.slice(0, idx),
-            newItem,
-            ...arr.slice(idx + 1)
-        ];
-    }
-
 
     onToggleActive = (id) => {
 
@@ -39,7 +24,7 @@ export default class Advantages extends Component {
                 item.active = false
             });
             return {
-                pageItem: this.toggleProperty(pageItem, id, 'active', true)
+                pageItem: toggleProperty(pageItem, id, 'active', true)
             };
         });
     };
@@ -52,11 +37,11 @@ export default class Advantages extends Component {
             });
             if (id < pageItem.length) {
                 return {
-                    pageItem: this.toggleProperty(pageItem, id + 1, 'active', true)
+                    pageItem: toggleProperty(pageItem, id + 1, 'active', true)
                 }
             } else {
                 return {
-                    pageItem: this.toggleProperty(pageItem, pageItem[0].id, 'active', true)
+                    pageItem: toggleProperty(pageItem, pageItem[0].id, 'active', true)
                 }
 
             }
@@ -123,7 +108,7 @@ export default class Advantages extends Component {
                     </div>
                 </div>
                 <div className="arrow-right" onClick={() => this.nextData(id)}>
-                    <img src={require("../../img/Arrow-right.png")} alt="arrow-right"/>
+                    <img src={require("../../img/arrow-right.svg")} alt="arrow-right"/>
                 </div>
                 <ul className="advantages-nav">
                     <li onClick={() => this.onToggleActive(pageItem[0].id)}
