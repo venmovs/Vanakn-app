@@ -9,12 +9,15 @@ export default class Consultation extends Component{
         username: '',
         connectionType: '',
         userData: '',
+        comment: '',
+        file: null,
      forms: [
          {id: 1, active: true},
          {id: 2, active: false},
          {id: 3, active: false},
          {id: 4, active: false}
-     ]
+     ],
+     faq: false
  };
 
 
@@ -25,13 +28,20 @@ export default class Consultation extends Component{
     };
 
     connectionHandleChange = (event) => {
-      this.setState({connectionType: event.target.value})
+      this.setState({connectionType: event.target.value});
     };
 
     userDataHandleChange = (event) => {
-        this.setState({userData: event.target.value})
+        this.setState({userData: event.target.value});
     };
 
+    commentHandChange = (event) => {
+        this.setState({comment: event.target.value});
+    };
+
+    fileHandChange = (e) =>{
+        this.setState({file: e.target.files[0]});
+    };
 
 
     currentPage = () => {
@@ -43,6 +53,22 @@ export default class Consultation extends Component{
         });
         return current
     };
+
+    faqShower = () => {
+      this.setState(({faq}) => {
+          return {
+              faq: !faq
+          }
+      })
+    };
+
+
+
+
+
+
+
+
 
     /*handleFormSubmit(e) {
         e.preventDefault();
@@ -61,6 +87,8 @@ export default class Consultation extends Component{
             })
         })
     }*/
+
+
 
 
     pageChanger = (id, plusSlide) => {
@@ -101,25 +129,34 @@ export default class Consultation extends Component{
 
 render() {
 
-    const {forms, username, connectionType} = this.state;
+    console.log(this.state);
 
+    const {forms, username, connectionType, faq, file} = this.state;
     return(
         <div className="consultation_wrapper">
             <div className="consultation_tittle">
                 Бесплатная консультация
             </div>
 
+            <div className="faq"
+            onClick={this.faqShower}>
+                ?
+            </div>
 
             <form className="consultation_block_wrapper">
 
-                <label key={forms[0].id} style={this.changeDisplay(forms[0].active)}
+                <div className="faq_attribute" style={this.changeDisplay(faq)}>
+                    Консультация бесплатная, наша задача чтобы перед пользователем нашего сайта была максимально прозрачная картина!
+                </div>
+
+                <label key={forms[0].id} style={this.changeDisplay(forms[0].active && faq === false)}
                        className='consultation_block_wrapper_name'>
                     <input className="consultation_block_wrapper_input" name="connection" placeholder="Имя Отчество" type="text"
                            value={username}
                            onChange={this.nameHandleChange} />
                 </label>
 
-                <label key={forms[1].id} style={this.changeDisplay(forms[1].active)}
+                <label key={forms[1].id} style={this.changeDisplay(forms[1].active && faq === false)}
                        className='consultation_block_wrapper_select'>
                     <div className="select_tittle">{username}</div>
                     <div className='select_sub_tittle'> Выберите удобный вид связи</div>
@@ -137,21 +174,30 @@ render() {
                    </div>
                 </label>
 
-                <label key={forms[2].id} style={this.changeDisplay(forms[2].active)}>
+                <label key={forms[2].id} style={this.changeDisplay(forms[2].active && faq === false)}>
                     <input type={connectionType === 'tel' ? 'tel' : 'email'} name="connection"
-                           placeholder={connectionType === 'tel' ? 'Введите номер телефона' : 'Адрес эл. почты' }
+                           placeholder={connectionType === 'tel' ? 'Номер телефона' : 'Адрес эл. почты' }
+                           className="consultation_block_wrapper_input"
                             onChange={this.userDataHandleChange}/>
                 </label>
 
-                <label key={forms[3].id} style={this.changeDisplay(forms[3].active)}>
-                    <input type="textarea" name="connection"/>
-                    <input type="file" name="connection"/>
-                    <input type="submit" name="connection" title="Проект сооружения"/>
+                <label key={forms[3].id} style={this.changeDisplay(forms[3].active && faq === false)}
+                className="submit_page_wrapper">
+
+                    <textarea className="comment"  placeholder="Оставить комментарий можете здесь"
+                            name="connection"
+                            onChange={this.commentHandChange}/>
+                    <div className='fail_submit_wrapper'>
+                        <input className='inputfile' type="file" id="file" name="connection"
+                        onChange={this.fileHandChange}/>
+                        <label htmlFor="file">{file === null ? "Выберите файл" : "Файл загружен" }</label>
+                        <input type="submit" name="connection" className='submit'/>
+                    </div>
                 </label>
 
             </form>
 
-            <div className="consultation_next" style={this.changeDisplay(forms[forms.length - 1].active, true)}
+            <div className="consultation_next bounce-in-left" style={this.changeDisplay(forms[forms.length - 1].active, true)}
                  onClick={()=>this.pageChanger(this.currentPage(), true)}>
                 <div className="consultation_next_text">
                     Дальше
@@ -159,7 +205,7 @@ render() {
                 <img src={require("../../img/small-arrow-right.svg")} alt="arrow"/>
             </div>
 
-            <div className="consultation_back" style={this.changeDisplay(forms[0].active, true)}
+            <div className="consultation_back bounce-in-right" style={this.changeDisplay(forms[0].active, true)}
                  onClick={()=> this.pageChanger(this.currentPage(), false)}>
                 <img src={require("../../img/arrow-left.svg")} alt="arrow"/>
                 <div className="consultation_back_text">
