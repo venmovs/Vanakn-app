@@ -129,8 +129,6 @@ export default class Consultation extends Component{
 
 render() {
 
-    console.log(this.state);
-
     const {forms, username, connectionType, faq, file} = this.state;
     return(
         <div className="consultation_wrapper">
@@ -190,7 +188,7 @@ render() {
                     <div className='fail_submit_wrapper'>
                         <input className='inputfile' type="file" id="file" name="connection"
                         onChange={this.fileHandChange}/>
-                        <label htmlFor="file">{file === null ? "Выберите файл" : "Файл загружен" }</label>
+                        <label htmlFor="file">{file === null ? "Выберите файл" : file.name }</label>
                         <input type="submit" name="connection" className='submit'/>
                     </div>
                 </label>

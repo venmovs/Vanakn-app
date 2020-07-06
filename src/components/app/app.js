@@ -7,6 +7,7 @@ import Advantages from "../advantages";
 import Consultation from "../consultation";
 import toggleProperty from "../toggle-property";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import items from "../modal-func/items";
 
 
 
@@ -50,11 +51,23 @@ export default class App extends Component {
 
 
 
-/*    scrollSite=(y) =>{
+    scrollSite=(y) =>{
+        let route = new Router();
+        let location = route.history.location.pathname;
+        let currentPage = 0;
+        this.state.navData.forEach((items) => {
+           if(`/${items.id}` === location){
+               currentPage = items.label;
+           }
+        });
         if(y < 0){
-            console.log('top')
+            if (currentPage > 0){
+                route.history.push(this.state.navData[currentPage-1].id )
+            }
         } else {
-            console.log('slide down')
+            if(currentPage < this.state.navData.length){
+                route.history.push(this.state.navData[currentPage].id)
+            }
         }
     };
 
@@ -62,11 +75,14 @@ export default class App extends Component {
         window.addEventListener('wheel', (e) => {
             this.scrollSite(e.wheelDelta);
         })
-    }*/
+    }
 
 
 
     render() {
+
+
+
         const {navData} = this.state;
 
         return (

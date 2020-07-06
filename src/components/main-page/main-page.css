@@ -1,6 +1,6 @@
 .logo {
 
-    margin-top: 100px;
+    margin-top: 5%;
     font-style: normal;
     font-weight: 500;
     font-size: 96px;
@@ -59,7 +59,7 @@
     align-items: center;
     flex-direction: column;
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%);
 }
@@ -92,7 +92,7 @@
 }
 
 .scroll-down-wrapper{
-    margin-top: 140px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
 }

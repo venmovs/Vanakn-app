@@ -14,10 +14,13 @@ const MainPage = ({href}) => {
 
         return (
             <div  id={href}>
+
+                <Link to="/gallery" className='logo'>
+                    VANAKN
+                </Link>
+
                 <div>
-                    <Link to="/gallery" className='logo'>
-                        VANAKN
-                    </Link>
+
                    {/* <div className="main_house">
                         <ReactVivus
                             id="foo"
