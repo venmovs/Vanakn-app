@@ -19,8 +19,8 @@ export default class App extends Component {
     state = {
         navData: [
             this.createNavItem("/", true),
-            this.createNavItem("advantages"),
-            this.createNavItem("consultation")
+            this.createNavItem("/advantages"),
+            this.createNavItem("/consultation")
 
         ]
     };
@@ -50,28 +50,52 @@ export default class App extends Component {
 
 
 
-/*    scrollSite=(y) =>{
-        if(y < 0){
-            console.log('top')
+    scrollSite = (y) => {
+       let router = new Router();
+       let location = router.history.location.pathname;
+        let currentPage = 0;
+        this.state.navData.forEach((items) => {
+            if (items.id === location) {
+                currentPage = items.label;
+            }
+        });
+
+
+
+        if (y < 0) {
+            if (currentPage > 0) {
+                return router.history.push('/consultation')
+            }
         } else {
-            console.log('slide down')
+            if (currentPage < this.state.navData.length) {
+                return  router.history.push('/advantages')
+            }
         }
     };
 
-    componentDidMount(){
+
+/*
+    this.state.navData[currentPage - 1].id
+*/
+
+    componentDidMount () {
         window.addEventListener('wheel', (e) => {
             this.scrollSite(e.wheelDelta);
-        })
-    }*/
+        });
+
+
+    };
+
 
 
 
     render() {
         const {navData} = this.state;
 
+
+
         return (
             <Router>
-
 
                 <div className='bg'>
 

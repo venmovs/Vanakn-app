@@ -129,7 +129,6 @@ export default class Consultation extends Component{
 
 render() {
 
-    console.log(this.state);
 
     const {forms, username, connectionType, faq, file} = this.state;
     return(
