@@ -10,13 +10,13 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 
-
 export default class App extends Component {
 
 
     labelCount = 1;
 
     state = {
+        page: '',
         navData: [
             this.createNavItem("/", true),
             this.createNavItem("/advantages"),
@@ -60,15 +60,19 @@ export default class App extends Component {
             }
         });
 
-
-
         if (y < 0) {
             if (currentPage > 0) {
-                return router.history.push('/consultation')
+                this.setState(() => {
+                    return {page: '/advantages'};
+                });
+                return router.history.push(this.state.page);
             }
         } else {
             if (currentPage < this.state.navData.length) {
-                return  router.history.push('/advantages')
+                this.setState(() => {
+                    return {page: '/consultation'};
+                });
+                return router.history.push(this.state.page);
             }
         }
     };
@@ -78,13 +82,15 @@ export default class App extends Component {
     this.state.navData[currentPage - 1].id
 */
 
+
+
+
     componentDidMount () {
         window.addEventListener('wheel', (e) => {
-            this.scrollSite(e.wheelDelta);
+            this.scrollSite(e.deltaY);
         });
-
-
     };
+
 
 
 
@@ -94,8 +100,9 @@ export default class App extends Component {
 
 
 
+
         return (
-            <Router>
+            <Router key={this.state.page}>
 
                 <div className='bg'>
 
