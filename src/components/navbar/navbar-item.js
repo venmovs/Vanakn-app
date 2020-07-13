@@ -14,10 +14,10 @@ const NavBarItem = ({label, onToggleImportant, important}) => {
         classForNum += ' scale-in-hor-left'
     }
 
-    let style = {display: 'none'};
+    let styleNum = {display: 'none'};
 
     if(important){
-        style = {display: 'block'}
+        styleNum = {display: 'block'}
     }
 
 
@@ -29,7 +29,7 @@ const NavBarItem = ({label, onToggleImportant, important}) => {
 
             <div className={classNames}>
             </div>
-            <div className={classForNum} style={style}>
+            <div className={classForNum} style={styleNum}>
                 {label}
             </div>
         </div>
