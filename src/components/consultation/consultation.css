@@ -64,6 +64,7 @@
     text-align: center;
     transition: 0.5s linear;
 }
+
 .select_wrapper input:checked + label {
     -webkit-animation: select_wrapper 2s linear infinite alternate both;
     animation: select_wrapper 2s linear infinite alternate both;

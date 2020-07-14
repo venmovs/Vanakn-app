@@ -4,20 +4,19 @@ import NavBarItem from "./navbar-item";
 import {Link} from "react-router-dom";
 
 
-const NavBar = ({nav, onToggleImportant, onToggleChoose}) => {
+const NavBar = ({nav, onToggleImportant}) => {
+
+
 
     const elements = nav.map((item) => {
         const {id, ...itemProps} = item;
 
-
-
         return (
-            <div key={id} className="nav-bar-page">
+            <div key={id}  className="nav-bar-page">
                 <Link to={id}>
                     <NavBarItem
                         {...itemProps}
                         onToggleImportant={() => onToggleImportant(id)}
-                        onToggleChoose={() => onToggleChoose(id)}
                     />
                 </Link>
             </div>
