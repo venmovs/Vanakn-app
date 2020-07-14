@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 const Modal = () => {
 
+
         return (
             <div className='bg-modal'>
                 <Link to="/" className='back-wrapper'>

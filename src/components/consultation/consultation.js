@@ -129,10 +129,10 @@ export default class Consultation extends Component{
 
 render() {
 
-
+    const {href} = this.props;
     const {forms, username, connectionType, faq, file} = this.state;
     return(
-        <div className="consultation_wrapper">
+        <div id={href} className="consultation_wrapper">
             <div className="consultation_tittle">
                 Бесплатная консультация
             </div>
