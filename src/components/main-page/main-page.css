@@ -148,3 +148,16 @@
 
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+#gallerySvg{
+    position: absolute;
+    right: 0;
+
+}
+
+#navbarSvg{
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    z-index: -1;
+}

@@ -2,11 +2,24 @@ import React from "react";
 import './main-page.css';
 import {Link} from "react-router-dom";
 
-/*import ReactVivus from 'react-vivus';
-import svg from '../../img/house.svg';*/
+import ReactVivus from 'react-vivus';
+import gallery from '../../img/Gallery.svg';
 
 const MainPage = ({href}) => {
 
+
+    const GalleryHere = () => (
+        <ReactVivus
+            id="gallerySvg"
+            option={{
+                file: gallery,
+                animTimingFunction: 'easy-out bounce',
+                type: 'oneByOne',
+                duration: 200
+            }}
+            style={{ height: '168px', width: '135px' }}
+        />
+    );
 
 
 
@@ -17,7 +30,9 @@ const MainPage = ({href}) => {
                 <div>
                     <Link to="/gallery" className='logo'>
                         VANAKN
+                        <GalleryHere/>
                     </Link>
+
                     <div className='main-page-wrapper'>
                         <div className='tittle'>
                             Поставляем камни из Армении
@@ -27,10 +42,12 @@ const MainPage = ({href}) => {
                             в любую точку земного шара
                         </div>
 
-                        <div className='scroll-down-wrapper'>
+                        {/*<div className='scroll-down-wrapper'>
                             <img className='mouse' src={require('../../img/mouse.svg')} alt="mouse"/>
                             <img className='slide-bottom' src={require('../../img/arrow-down.svg')} alt="arrow-down"/>
-                        </div>
+                        </div>*/}
+
+
                     </div>
                     <a className="mail" href="#">vanakn.llc@gmail.com</a>
                 </div>

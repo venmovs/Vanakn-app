@@ -24,9 +24,7 @@ const NavBarItem = ({label, onToggleImportant, important}) => {
     return (
         <div className="n-line-wrapper"
              onClick={onToggleImportant}>
-
             <div className={classNames}>
-
             </div>
             <div className={classForNum} style={styleNum}>
                 {label}

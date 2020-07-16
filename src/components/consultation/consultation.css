@@ -1,8 +1,5 @@
 .consultation_wrapper{
-    position: absolute;
-    left: 50%;
-    top: 5%;
-    transform: translate(-50%);
+    position: relative;
 }
 
 .consultation_tittle{
@@ -506,12 +503,12 @@ input{
     justify-content: left;
     align-items: center;
     padding: 15px;
-    z-index: -1;
+    z-index: 0;
     width: 80px;
     height: 76px;
     left: -10%;
     top: 20%;
-    background: #D8D8D8;
+    background: linear-gradient(90deg, #D8D8D8 0%, rgba(216, 216, 216, 0) 70.79%);
     border-radius: 10px 0 0 10px;
     font-style: normal;
     font-weight: normal;
@@ -524,7 +521,7 @@ input{
 }
 
 .faq:hover{
-    left: -14%;
+    left: -12%;
     cursor: pointer;
 }
 
