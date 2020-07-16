@@ -132,6 +132,7 @@ render() {
     const {href} = this.props;
     const {forms, username, connectionType, faq, file} = this.state;
     return(
+        <div className="center">
         <div id={href} className="consultation_wrapper">
             <div className="consultation_tittle">
                 Бесплатная консультация
@@ -212,6 +213,7 @@ render() {
                 </div>
             </div>
 
+        </div>
         </div>
     )
 }

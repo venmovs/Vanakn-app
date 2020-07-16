@@ -93,6 +93,7 @@ export default class Advantages extends Component {
         const {id, label, number, img} = this.prepareData();
 
         return (
+            <div className="center">
             <div id={href} className="advantages-wrapper"
                  onMouseEnter={() => this.componentWillUnmount()}
                  onMouseLeave={() => this.componentDidMount()}>
@@ -131,6 +132,7 @@ export default class Advantages extends Component {
                              style={pageItem[2].active === true ? displayOn : displayOf}/>
                     </li>
                 </ul>
+            </div>
             </div>
         )
     }
