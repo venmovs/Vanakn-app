@@ -6,6 +6,7 @@ import Modal from "../modal";
 import Advantages from "../advantages";
 import Consultation from "../consultation";
 import Calculator from "../calculator";
+import Contact from "../contact";
 import toggleProperty from "../toggle-property";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -18,7 +19,8 @@ export default class App extends Component {
             this.createNavItem("/", true),
             this.createNavItem("/advantages"),
             this.createNavItem("/consultation"),
-            this.createNavItem('/calculator')
+            this.createNavItem('/calculator'),
+            this.createNavItem('/contact')
         ]
     };
 
@@ -65,7 +67,10 @@ export default class App extends Component {
                         <Consultation href={navData[2].id}/>
                     </Route>
                     <Route path='/calculator'>
-                        <Calculator hreg={navData[3].id}/>
+                        <Calculator href={navData[3].id}/>
+                    </Route>
+                    <Route path='/contact'>
+                        <Contact href={navData[4].id}/>
                     </Route>
                 </div>
             </Router>
