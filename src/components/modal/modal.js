@@ -5,12 +5,12 @@ import ArrowBack from '../../img/arrow-back.svg';
 import {Link} from "react-router-dom";
 
 
-const Modal = () => {
+const Modal = ({showNavBarFunc}) => {
 
 
         return (
             <div className='bg-modal'>
-                <Link to="/" className='back-wrapper'>
+                <Link to="/" className='back-wrapper' onClick={()=> showNavBarFunc(true)}>
                     <img className='arrow-back' src={ArrowBack} alt="back"/>
                     <div className='back-to-main'>назад</div>
                 </Link>

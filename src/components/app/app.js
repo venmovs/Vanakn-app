@@ -6,7 +6,7 @@ import Modal from "../modal";
 import Advantages from "../advantages";
 import Consultation from "../consultation";
 import Calculator from "../calculator";
-import Contact from "../contact";
+import {Contact} from "../contact";
 import toggleProperty from "../toggle-property";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -15,6 +15,7 @@ export default class App extends Component {
     labelCount = 1;
 
     state = {
+        showNavBar: true,
         navData: [
             this.createNavItem("/", true),
             this.createNavItem("/advantages"),
@@ -43,6 +44,12 @@ export default class App extends Component {
         });
     };
 
+    showNavBarFunc=(switcher)=>{
+        this.setState({showNavBar: switcher})
+    };
+
+
+
 
     render() {
         const {navData} = this.state;
@@ -50,15 +57,17 @@ export default class App extends Component {
             <Router>
                 <div className='bg'>
                     <Route path="/gallery">
-                        <Modal/>
+                        <Modal showNavBarFunc={this.showNavBarFunc}/>
                     </Route>
                     <NavBar
                         nav={navData}
                         onToggleImportant={this.onToggleImportant}
+                        showNavBar={this.state.showNavBar}
                     />
                     <Route path="/"
                            exact>
-                        <MainPage href={navData[0].id}/>
+                        <MainPage href={navData[0].id}
+                                  showNavBarFunc={this.showNavBarFunc}/>
                     </Route>
                     <Route path="/advantages">
                         <Advantages href={navData[1].id}/>

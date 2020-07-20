@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import ReactVivus from 'react-vivus';
 import gallery from '../../img/Gallery.svg';
 
-const MainPage = ({href}) => {
+const MainPage = ({href, showNavBarFunc}) => {
 
 
     const GalleryHere = () => (
@@ -28,7 +28,7 @@ const MainPage = ({href}) => {
         return (
             <div  id={href}>
                 <div>
-                    <Link to="/gallery" className='logo'>
+                    <Link to="/gallery" className='logo' onClick={()=> showNavBarFunc(false)}>
                         VANAKN
                         <GalleryHere/>
                     </Link>
@@ -49,7 +49,7 @@ const MainPage = ({href}) => {
 
 
                     </div>
-                    <a className="mail" href="#">vanakn.llc@gmail.com</a>
+                    <a className="mail" href="mailto:vanakn.llc@gmail.com">vanakn.llc@gmail.com</a>
                 </div>
             </div>
         )

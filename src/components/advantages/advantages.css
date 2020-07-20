@@ -12,14 +12,14 @@
     display: flex;
     justify-content: center;
     align-content: center;
-
+    margin-top: 10px;
     position: relative;
     flex-direction: column;
 }
 
 .advantages-text-wrapper{
     position: relative;
-    display: block;
+    display: flex;
     margin: 10px auto;
     width: 700px;
     height: 292px;
@@ -36,7 +36,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-
+    width: 400px;
     color: #000000;
 }
 
