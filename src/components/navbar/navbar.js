@@ -4,7 +4,8 @@ import NavBarItem from "./navbar-item";
 import {Link} from "react-router-dom";
 
 
-const NavBar = ({nav, onToggleImportant}) => {
+const NavBar = ({nav, onToggleImportant, showNavBar}) => {
+
 
 
 
@@ -23,8 +24,15 @@ const NavBar = ({nav, onToggleImportant}) => {
         );
     });
 
+    let styleNav = {display: 'none'};
+    if (showNavBar){
+        styleNav = {display: 'flex'}
+    } else {
+        styleNav = {display: 'none'};
+    }
+
     return (
-        <div className="nav-bar-wrapper">
+        <div className="nav-bar-wrapper" style={styleNav}>
             {elements}
         </div>
     );
