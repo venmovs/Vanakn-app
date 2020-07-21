@@ -1,13 +1,4 @@
-.contact-wrapper{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    z-index: -1;
-}
+
 
 .contact-tittle{
     font-style: normal;
@@ -27,7 +18,34 @@
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#contactSvg{
-    position: absolute;
-    bottom: 0;
+
+.contact-button{
+    width: 415px;
+    height: 86px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
+
+
+.contact-copy{
+    position: absolute;
+    margin: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+

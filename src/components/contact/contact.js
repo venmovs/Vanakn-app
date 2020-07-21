@@ -1,37 +1,72 @@
-import React from "react";
+import React, {Component} from "react";
 import './contact.css';
 
-import ReactVivus from 'react-vivus';
-import urban from '../../img/urban.svg';
 
-const Contact = ({href}) => {
 
-    const Urban = () => (
-        <ReactVivus
-            id="contactSvg"
-            option={{
-                file: urban,
-                animTimingFunction: 'easy-out bounce',
-                type: 'oneByOne',
-                duration: 3000
-            }}
-            style={{ height: '400px', width: '400px' }}
-        />
-    );
+import ParticleEffectButton from 'react-particle-effect-button'
 
-    return(
-        <div id={href} className='contact-wrapper'>
+class Contact extends Component{
 
-            <div className='contact-tittle'>
-                По всем вопросам пишите на почту
+    state = {
+        hidden: false
+    };
+
+    copyToClipboard() {
+        let copytext = document.createElement('input');
+        copytext.value = "vanakn.llc@gmail.com";
+        document.body.appendChild(copytext);
+        copytext.select();
+        document.execCommand('copy');
+        document.body.removeChild(copytext)
+    }
+
+    changeVishion = ()=> {
+        this.copyToClipboard();
+      this.setState({hidden: true})
+    };
+
+
+
+
+
+    render() {
+
+        let copyTextStyle = {display: "none"};
+
+        if (this.state.hidden === true){
+            copyTextStyle = {display: 'block'}
+        }
+
+        const {href} =this.props;
+        return(
+            <div id={href} className='center'>
+
+                <div style={copyTextStyle} className='contact-copy'>
+                    Почта скопирована
+                </div>
+
+                <div className='contact-tittle'>
+                    По всем вопросам пишите на почту
+                </div>
+                <a href="mailto:vanakn.llc@gmail.com" className='contact-email'>
+                    vanakn.llc@gmail.com
+                </a>
+
+                <ParticleEffectButton
+                    color='#121019'
+                    hidden={this.state.hidden}
+                >
+                    <div className='contact-button' onClick={()=> this.changeVishion()}>
+                        копировать ссылку
+                    </div>
+                </ParticleEffectButton>
+
             </div>
-            <a href="mailto:vanakn.llc@gmail.com" className='contact-email'>
-                vanakn.llc@gmail.com
-            </a>
-                <Urban/>
-        </div>
-    )
-};
+        )
+    }
+
+
+}
 
 export {Contact};
 
