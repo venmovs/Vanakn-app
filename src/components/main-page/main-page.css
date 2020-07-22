@@ -91,45 +91,6 @@
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.scroll-down-wrapper{
-    margin-top: 140px;
-    display: flex;
-    flex-direction: column;
-}
-
-.mouse{
-    margin-bottom: 20px;
-}
-
-
-.slide-bottom {
-    -webkit-animation: slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
-    animation: slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate backwards;
-}
-
-
-@-webkit-keyframes slide-bottom {
-    0% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
-    }
-}
-@keyframes slide-bottom {
-    0% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
-    }
-}
-
-
 
 .mail{
 
@@ -152,12 +113,83 @@
 #gallerySvg{
     position: absolute;
     right: 0;
-
+    height: 168px;
+    width: 135px;
 }
 
-#navbarSvg{
-    position: absolute;
-    bottom: 25%;
-    left: 0;
-    z-index: -1;
+
+@media only screen
+and (max-device-width: 768px)
+and (max-device-width: 1024px) {
+
+.logo {
+
+    margin-top: 50px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 46px;
+}
+
+    .tittle{
+        margin-top: 100px;
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .sub-tittle{
+        margin-top: 15px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 44px;
+        width: 480px;
+
+    }
+
+    #gallerySvg{
+        position: absolute;
+        right: 0;
+        width: 80px;
+    }
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 425px) {
+
+    .logo {
+        margin-top: 50px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .tittle{
+        margin-top: 80px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .sub-tittle{
+        margin-top: 15px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        width: 300px;
+
+    }
+
+    #gallerySvg{
+        position: absolute;
+        right: 0;
+        top: 10%;
+        width: 40px;
+    }
+
+    .mail{
+        display: none;
+    }
 }

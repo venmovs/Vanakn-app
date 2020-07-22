@@ -69,3 +69,29 @@
 
     }
 }
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 425px) {
+
+    .bg-modal-logo{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 176px;
+
+
+        letter-spacing: 0.67em;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
+    }
+
+    #modal-func > div > div > div > div > div{
+        box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25);
+        width: 500px;
+    }
+
+    .sc-bwzfXH.cgRZKI{
+    }
+}

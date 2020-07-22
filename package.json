@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "awesome-react-calculator": "^1.0.9",
+    "browser-sync": "^2.26.10",
     "lodash-es": "^4.17.15",
     "prettier": "^2.0.5",
     "rc-tween-one": "^2.7.2",

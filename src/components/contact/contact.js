@@ -20,7 +20,7 @@ class Contact extends Component{
         document.body.removeChild(copytext)
     }
 
-    changeVishion = ()=> {
+    changeOnCopyText = ()=> {
         this.copyToClipboard();
       this.setState({hidden: true})
     };
@@ -41,7 +41,7 @@ class Contact extends Component{
         return(
             <div id={href} className='center'>
 
-                <div style={copyTextStyle} className='contact-copy'>
+                <div style={copyTextStyle} className='contact-copy pulsate-fwd'>
                     Почта скопирована
                 </div>
 
@@ -56,7 +56,7 @@ class Contact extends Component{
                     color='#121019'
                     hidden={this.state.hidden}
                 >
-                    <div className='contact-button' onClick={()=> this.changeVishion()}>
+                    <div className='contact-button' onClick={()=> this.changeOnCopyText()}>
                         копировать ссылку
                     </div>
                 </ParticleEffectButton>

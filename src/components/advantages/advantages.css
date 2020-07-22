@@ -175,3 +175,136 @@ li{
     }
 }
 
+
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+
+    .advantages-text-wrapper{
+
+        margin: 10px auto;
+        width: 450px;
+        height: 220px;
+
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .advantages-text{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 22px;
+        width: 320px;
+        color: #000000;
+    }
+
+    .advantages-number{
+        position: absolute;
+        right: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 80px;
+        line-height: 176px;
+        color: #000000;
+    }
+
+    .advantages-img{
+        width: 530px;
+    }
+
+    .arrow-right{
+        position: absolute;
+        bottom: 25%;
+        right: 0;
+        height: 40px;
+    }
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 425px) {
+
+    .advantages-text-wrapper{
+
+        margin: 10px auto;
+        width: 320px;
+        height: 200px;
+
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+    .advantages-text{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 14px;
+        width: 250px;
+        color: #000000;
+    }
+
+    .advantages-number{
+        position: absolute;
+        right: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 176px;
+        color: #000000;
+    }
+
+    .advantages-img{
+        display: none;
+    }
+
+    .arrow-right{
+        display: none;
+    }
+
+    .line-under-li{
+        width: 40px;
+        height: 0;
+        margin-top: 10px;
+        border: 1px solid white;
+    }
+
+
+    .advantages-nav{
+        display: flex;
+        margin: 0 auto;
+        padding: 0;
+        align-content: center;
+    }
+
+    .advantages-nav-item{
+
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 22px;
+
+        margin: 20px;
+        color: #6A6A6A;
+
+
+        transition: 0.2s linear;
+    }
+
+    .advantages-nav-item:hover{
+
+        font-size: 12px;
+        color: #6A6A6A;
+    }
+
+
+    .advantages-nav-item.active-adv-nav{
+        font-size: 12px;
+
+
+        color: #FFFFFF;
+        margin: 20px;
+    }
+
+}
