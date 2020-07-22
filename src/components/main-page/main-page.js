@@ -17,7 +17,6 @@ const MainPage = ({href, showNavBarFunc}) => {
                 type: 'oneByOne',
                 duration: 200
             }}
-            style={{ height: '168px', width: '135px' }}
         />
     );
 

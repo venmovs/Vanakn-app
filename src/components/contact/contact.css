@@ -1,13 +1,4 @@
-.contact-wrapper{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    z-index: -1;
-}
+
 
 .contact-tittle{
     font-style: normal;
@@ -27,7 +18,124 @@
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#contactSvg{
+
+.contact-button{
+    width: 415px;
+    height: 86px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+.contact-copy{
     position: absolute;
-    bottom: 0;
+    margin: 20px auto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: white;
+}
+
+.pulsate-fwd {
+    -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+    animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+
+
+@-webkit-keyframes pulsate-fwd {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes pulsate-fwd {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+    .contact-tittle{
+        font-size: 24px;
+        line-height: 44px;
+    }
+
+    .contact-email{
+        font-size: 30px;
+    }
+
+
+    .contact-button{
+        width: 300px;
+        height: 90px;
+        font-size: 20px;
+    }
+
+
+    .contact-copy{
+        font-size: 24px;
+        line-height: 29px;
+        color: white;
+    }
+
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 425px) {
+    .contact-tittle{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .contact-email{
+        font-size: 18px;
+    }
+
+
+    .contact-button{
+        width: 240px;
+        height: 90px;
+        font-size: 14px;
+    }
+
+
+    .contact-copy{
+        font-size: 14px;
+        line-height: 29px;
+        color: white;
+    }
+
 }
