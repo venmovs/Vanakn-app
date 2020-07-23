@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './consultation.css';
 import toggleProperty from "../toggle-property";
+import axios from 'axios';
 
 
 export default class Consultation extends Component{
@@ -68,25 +69,24 @@ export default class Consultation extends Component{
 
 
 
-
-
-    /*handleFormSubmit(e) {
+    handleFormSubmit = (e) => {
         e.preventDefault();
-        let userData = this.state.newUser;
 
-        fetch('http://example.com',{
-            method: "POST",
-            body: JSON.stringify(userData),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        }).then(response => {
-            response.json().then(data =>{
-                console.log("Successful" + data);
+        let dataForSend = {username: this.state.username, userData: this.state.userData, comment: this.state.comment, file: this.state.file};
+        dataForSend = JSON.stringify(dataForSend);
+
+        axios
+            .post('http://vanakn.am/mail.php', dataForSend)
+            .then(response => {
+                if (!response.ok){
+                    throw new Error("Что-то пошло не так")
+                }
+                console.log(response);
             })
-        })
-    }*/
+            .catch(error => {
+                console.log(error)
+            })
+    };
 
 
 
@@ -128,7 +128,6 @@ export default class Consultation extends Component{
 
 
 render() {
-
     const {href} = this.props;
     const {forms, username, connectionType, faq, file} = this.state;
     return(
@@ -143,7 +142,7 @@ render() {
                 ?
             </div>
 
-            <form className="consultation_block_wrapper">
+            <form className="consultation_block_wrapper" onSubmit={this.handleFormSubmit}>
 
                 <div className="faq_attribute" style={this.changeDisplay(faq)}>
                     Консультация бесплатная, наша задача чтобы перед пользователем нашего сайта была максимально прозрачная картина!
